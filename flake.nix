@@ -30,6 +30,12 @@
           specialArgs = {
             inherit home-manager;
           };
+          apps = {
+            disko-install = {
+              type = "app";
+              program = "${disko.packages.${system}.disko-install}/bin/disko-install";
+            };
+          };
         };
 
         # Expose disko-install as a runnable app
