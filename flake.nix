@@ -17,11 +17,11 @@
           config.allowUnfree = true;
         };
       in {
-        nixosConfigurations.my-host = nixpkgs.lib.nixosSystem {
+        nixosConfigurations.standard = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./hosts/my-host/configuration.nix
-            ./hosts/my-host/disko.nix
+            ./hosts/standard/configuration.nix
+            ./hosts/standard/disko.nix
             disko.nixosModules.disko
             home-manager.nixosModules.home-manager
             ./nixos/hardware-configuration.nix
@@ -30,5 +30,6 @@
             inherit home-manager;
           };
         };
+        packages.default = disko.packages.${system}.disko-install;
       });
 }

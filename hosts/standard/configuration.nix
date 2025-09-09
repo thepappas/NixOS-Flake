@@ -10,7 +10,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "my-host";
+  networking.hostName = "standard";
   networking.networkmanager.enable = true;
 
   time.timeZone = "America/Denver";
