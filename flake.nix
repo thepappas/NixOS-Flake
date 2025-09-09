@@ -30,6 +30,6 @@
             inherit home-manager;
           };
         };
-        disko.packages.default = packages.${system}.disko-install;
+        packages.default = disko.packages.${system}.disko-install;
       });
 }
