@@ -18,6 +18,7 @@
           config.allowUnfree = true;
         };
       in {
+        # ✅ NixOS configuration
         nixosConfigurations.standard = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
@@ -32,20 +33,23 @@
           };
         };
 
+        # ✅ Top-level apps output
         apps = {
           disko-install = {
             type = "app";
             program = "${disko.packages.${system}.disko-install}/bin/disko-install";
           };
+
+          default = {
+            type = "app";
+            program = "${disko.packages.${system}.disko-install}/bin/disko-install";
+          };
         };
 
-        # Expose disko-install as a runnable app
-        apps.default = {
-          type = "app";
-          program = "${disko.packages.${system}.disko-install}/bin/disko-install";
+        # ✅ Top-level packages output
+        packages = {
+          disko-install = disko.packages.${system}.disko-install;
+          default = disko.packages.${system}.disko-install;
         };
-
-        # Optional: expose it as a package too
-        packages.default = disko.packages.${system}.disko-install;
       });
 }
