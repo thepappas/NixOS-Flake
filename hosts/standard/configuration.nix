@@ -20,7 +20,7 @@
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
 
-  users.users.john = {
+  users.users.jpappas = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     password = "changeme"; # Replace with hashed password or use secrets
@@ -32,7 +32,7 @@
 
   programs.home-manager.enable = true;
 
-  home-manager.users.john = {
+  home-manager.users.jpappas = {
     home.stateVersion = "23.11";
     programs.zsh.enable = true;
     programs.git.enable = true;
