@@ -30,6 +30,14 @@
             inherit home-manager;
           };
         };
+
+        # Expose disko-install as a runnable app
+        apps.default = {
+          type = "app";
+          program = "${disko.packages.${system}.disko-install}/bin/disko-install";
+        };
+
+        # Optional: expose it as a package too
         packages.default = disko.packages.${system}.disko-install;
       });
 }
